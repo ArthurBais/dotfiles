@@ -1,0 +1,68 @@
+[global]
+    geometry = "350x5-20+30"
+    indicate_hidden = true
+    
+    shrink = true
+    
+    transparency = 18
+    separator_height = 15
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 2
+    frame_color = "#FF79C6"
+    separator_color = frame
+    sort = true
+    idle_threshold = 360
+    font = "mono 14"
+    line_height = 10
+    markup = full
+    allow_markup = yes
+    
+
+    format ="<u>%s</u>\n%b"
+    
+    alignment = left
+    show_age_threshold = 120
+    word_wrap = true
+    ellipsize = middle
+    ignore_newline = false
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    max_icon_size = 32
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/arthur/.local/share/icons/
+    sticky_history = true
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/brave -new-tab
+    always_run_script = true
+    startup_notification = false
+	mouse_right_click=do_action
+	mouse_middle_click=close_all
+[shortcuts]
+    # Close notification.
+    close = ctrl+space
+    # Close all notifications.
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    # Context menu.
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#44475A"
+    foreground = "#FFFFFF"
+    frame_color ="#6272A4"
+    timeout = 3
+
+[urgency_normal]
+    background = "#44475A"
+    foreground = "#FFFFFF"
+    frame_color ="#BD93F9"
+    timeout = 10
+
+[urgency_critical]
+    background = "#FF5555"
+    foreground = "#FFFFFF"
+    frame_color = "#fabd2f"
+    timeout = 1d

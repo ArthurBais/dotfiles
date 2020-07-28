@@ -1,0 +1,18 @@
+#!/bin/bash
+
+while read file
+do
+    case "$1" in
+        "y")
+		echo -n "$file" | xclip -selection clipboard &&
+		notify-send "$file copied to clipboard" & 
+        ;;
+        "C-c")
+        xclip -selection clipboard "$file" -t image/png &&
+        notify-send "$file copied to clipboard" &
+        ;;
+        "d")
+		[ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm -f "$file" && notify-send "$file deleted." &
+        ;;
+    esac
+done

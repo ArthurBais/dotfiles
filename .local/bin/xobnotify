@@ -1,0 +1,3 @@
+#!/bin/sh
+# output volume change to xob fifo
+[ "$(pulsemixer --get-mute)" -eq 0 ] && pulsemixer --get-volume | cut -d' ' -f1 > /tmp/xobvolumefifo || echo "$(pulsemixer --get-volume | cut -d' ' -f1)""!" > /tmp/xobvolumefifo

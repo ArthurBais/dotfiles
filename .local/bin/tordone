@@ -1,0 +1,14 @@
+#!/bin/bash
+# notifies when transmission downloaded a file
+# last edit: 19:53:35 21/02/20
+
+OpenLF () {
+	$TERMINAL -e ranger $TR_TORRENT_DIR
+}
+ACTION=$(dunstify --action="default,Open lf" -i transmission "Transmission-daemon" "$TR_TORRENT_NAME has completely downloaded")
+
+case $ACTION in
+	"default")
+		OpenLF
+		;;
+esac

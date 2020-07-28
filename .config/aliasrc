@@ -1,0 +1,74 @@
+#!/bin/zsh
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias urls='$EDITOR ~/.config/newsboat/urls'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias offlinewiki-daemon='kiwix-serve --port 49849 --daemon ~/documents/offlinewiki/*.zim'
+alias offlinewiki-quit='killall kiwix-serve'
+alias yt='youtube-viewer'
+alias sudo='sudo '
+alias bc='bc -l'
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+	ll="ls -l"\
+	la="ls -a"\
+	lla="ls -al"
+
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+
+alias httpserv="python3 -m http.server 80"
+alias \ e="$EDITOR" \
+	v="$EDITOR" \
+	p="sudo pacman"
+alias tspmpv="tsp mpv --ontop --no-border --force-window --autofit=500x280 --geometry=-15-20"
+alias dotfiles='/usr/bin/git --git-dir=$HOME/docs/dotfiles/ --work-tree=$HOME'
+alias soundcloud-dl='youtube-dl -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --add-metadata'
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+alias nb='newsboat'
+alias pm='pulsemixer'
+alias sr='sr -browser=$BROWSERCLI'
+alias surfraw='surfraw -browser=$BROWSER'
+alias irssi='irssi --config="$XDG_CONFIG_HOME"/irssi/config --home="$XDG_DATA_HOME"/irssi'
+
+rest() { termdown 1h30m && mpv --no-resume-playback --loop --force-window=no --volume=100 ~/.config/alarm.mp3
+ }
+testinput() { xev | awk -F '[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }' }
+weather () { curl "wttr.in/?0pq" }
+myip () { curl icanhazip.com }
+vw () { $EDITOR $VIMWIKIDIR/index.md }
+vimwiki () { $EDITOR $VIMWIKIDIR/index.md }
+tmuxconf () { $EDITOR ~/.config/tmux/tmux.conf }
+aliasrc () { $EDITOR ~/.config/aliasrc }
+vimrc () { $EDITOR ~/.config/nvim/init.vim }
+zshrc () { $EDITOR ~/.config/zsh/.zshrc }
+cfg-i3 () { $EDITOR ~/.config/i3/config }
+sxhkdrc () { $EDITOR ~/.config/sxhkd/sxhkdrc }
+rangerrc () { $EDITOR ~/.config/ranger/rc.conf }
+cfg-polybar () { $EDITOR ~/.config/polybar/config }
+timer () { termdown -a "$1" && mpv --no-video ~/.config/alarm.mp3 --loop }
+cheat () { curl cheat.sh/$1 }
+mkcd() {
+  if [ ! -n "$1" ]; then
+    echo "Enter a directory name"
+  elif [ -d $1 ]; then
+    echo "\`$1' already exists"
+  else
+    mkdir $1 && cd $1
+  fi
+}
+
+fixcaps() { xdotool key Caps_Lock }
+reloadopenrazer() { killall openrazer-daemon; openrazer-daemon }
+
+fzf-bookmarkcli() { sr "$(cat ~/.config/surfraw/bookmarks | grep '^[[:alnum:]]' | sort -n | fzf -e -i)"  }
+fzf-bookmarks() { surfraw "$(cat ~/.config/surfraw/bookmarks | grep '^[[:alnum:]]' | sort -n | fzf -e -i)"  }
+cfg-bookmarks() { $EDITOR ~/.config/surfraw/bookmarks }
+bookmarks() { $EDITOR ~/.config/surfraw/bookmarks }

@@ -1,0 +1,7 @@
+#!/bin/sh
+# a script for initializing xob bars
+# 23/07/20 - Arthur Bais
+
+[ -e /tmp/xobvolumefifo ] || mkfifo /tmp/xobvolumefifo
+
+tail -f /tmp/xobvolumefifo | xob -t 1000
