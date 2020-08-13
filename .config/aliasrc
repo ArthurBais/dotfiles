@@ -31,7 +31,6 @@ alias \ e="$EDITOR" \
 alias tspmpv="tsp mpv --ontop --no-border --force-window --autofit=500x280 --geometry=-15-20"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/docs/dotfiles/ --work-tree=$HOME'
 alias soundcloud-dl='youtube-dl -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --add-metadata'
-alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias nb='newsboat'
 alias pm='pulsemixer'
 alias sr='sr -browser=$BROWSERCLI'
@@ -72,3 +71,4 @@ fzf-bookmarkcli() { sr "$(cat ~/.config/surfraw/bookmarks | grep '^[[:alnum:]]' 
 fzf-bookmarks() { surfraw "$(cat ~/.config/surfraw/bookmarks | grep '^[[:alnum:]]' | sort -n | fzf -e -i)"  }
 cfg-bookmarks() { $EDITOR ~/.config/surfraw/bookmarks }
 bookmarks() { $EDITOR ~/.config/surfraw/bookmarks }
+changenode() { doas killall -HUP tor }
