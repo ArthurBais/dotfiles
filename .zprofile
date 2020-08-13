@@ -26,7 +26,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export VIMWIKIDIR="$HOME/docs/vimwiki"
 export GOPATH=$HOME/.local/bin/go
 export ZDOTDIR="$HOME/.config/zsh"
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+#export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
