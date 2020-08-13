@@ -5,7 +5,7 @@
 # Add ~/.local/bin to $PATH
 export PATH=$HOME/.local/bin:$PATH
 
-export SCREENSHOT_DIR=~/pics/screenshots
+export SCREENSHOTDIR=~/pics/screenshots
 
 # default programs
 export EDITOR="nvim"
