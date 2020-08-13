@@ -17,7 +17,7 @@ export BROWSERCLI="w3m"
 export READER="zathura"
 
 # homepage for w3m
-export WWW_HOME="https://duckduckgo.com"
+export WWW_HOME="https://ifconfig.me"
 
 # Cleanup home directory
 export XDG_DATA_HOME="$HOME/.local/share"
