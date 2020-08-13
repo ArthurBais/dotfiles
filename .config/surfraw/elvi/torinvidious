@@ -1,0 +1,26 @@
+#!/bin/sh
+# AUTHOR: arthur@arthurbais.xyz
+#
+# DATE: 09/07/20
+#
+# DESC: Elvi to search youtube from an invidious instance
+# elvis: torinvidious   -- Use one of the instances of invidious (http://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion)
+. surfraw || exit 1
+
+w3_usage_hook () {
+    cat <<EOF
+Usage: $w3_argv0 [options] [search words]...
+Description:
+  Searx search instance (http://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/)
+EOF
+    w3_global_usage
+}
+
+w3_config
+w3_parse_args "$@"
+if test -z "$w3_args"; then
+    w3_browse_url "http://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/"
+else
+    escaped_args=`w3_url_of_arg $w3_args`
+    w3_browse_url "http://c7hqkpkpemu6e7emz5b4vyz7idjgdvgaaa3dyimmeojqbgpea3xqjoid.onion/search?q=${escaped_args}"
+fi
