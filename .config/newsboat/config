@@ -30,6 +30,16 @@ color listfocus_unread magenta default bold
 color info blue black bold
 color article white default bold
 
+# use tor
+download-retries 4
+download-timeout 60
+use-proxy yes
+proxy-type socks5h
+proxy 127.0.0.1:9050
+user-agent "Mozilla/5.0 (Windows NT 6.1; rv:60.0) Gecko/20100101 Firefox/60.0"
+history-limit 0
+text-width 72
+
 browser linkhandler
 macro , open-in-browser
 macro o set browser "$BROWSER --new-tab %u" ; open-in-browser ; set browser linkhandler
