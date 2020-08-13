@@ -76,7 +76,7 @@ export FFF_FAV4=/usr/share
 
 # start x on login if on tty1
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-	pgrep dwm || ssh-agent startx
+	pgrep dwm || ssh-agent sx
 fi
 
 #source ~/.fehbg

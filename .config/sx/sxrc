@@ -1,0 +1,11 @@
+mpd &
+unclutter &
+xobinit &
+xbanish -i mod1 &
+dunst &
+xset r rate 300 50 &
+xmodmap ~/.config/xmodmap/xmodmap &
+transmission-daemon &
+redshift -l 46.5:30.7 &
+
+dwm
