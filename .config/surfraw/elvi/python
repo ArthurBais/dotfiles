@@ -22,5 +22,5 @@ if test -z "$w3_args"; then
     w3_browse_url "https://pypi.python.org"
 else
     escaped_args=`w3_url_of_arg $w3_args`
-    w3_browse_url "https://pypi.python.org/pypi?%3Aaction=search&term=${escaped_args}"
+    w3_browse_url "file:///usr/share/doc/python/html/search.html?q=${escaped_args}"
 fi
