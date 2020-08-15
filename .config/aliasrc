@@ -8,7 +8,7 @@ alias ....='cd ../../..'
 alias offlinewiki-daemon='kiwix-serve --port 49849 --daemon ~/documents/offlinewiki/*.zim'
 alias offlinewiki-quit='killall kiwix-serve'
 alias yt='youtube-viewer'
-alias sudo='sudo '
+alias doas='doas '
 alias bc='bc -l'
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
