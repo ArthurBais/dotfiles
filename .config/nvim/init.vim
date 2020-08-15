@@ -72,7 +72,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'alvan/vim-closetag'
 Plug 'arcticicestudio/nord-vim'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 call plug#end()
 
 "}}}
@@ -142,21 +141,6 @@ let g:vimwiki_folding = 'expr'
 "xmap <leader>f  <Plug>(coc-format-selected)
 "nmap <leader>f  <Plug>(coc-format-selected)
 ""}}}
-" Instant Markdown{{{
-filetype plugin on
-" start instant markdown preview manually
-map <leader>md :InstantMarkdownPreview<CR>
-"Uncomment to override defaults:
-let g:instant_markdown_autostart = 0
-"let g:instant_markdown_open_to_the_world = 1
-"let g:instant_markdown_allow_unsafe_content = 1
-let g:instant_markdown_allow_external_content = 1
-let g:instant_markdown_mathjax = 0
-let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-"let g:instant_markdown_autoscroll = 0
-let g:instant_markdown_port = 8888
-"let g:instant_markdown_python = 1
-" }}}
 " Section Folding {{{
 set foldenable
 set foldmethod=marker
