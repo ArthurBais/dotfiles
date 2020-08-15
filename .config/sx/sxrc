@@ -8,4 +8,4 @@ xmodmap ~/.config/xmodmap/xmodmap &
 transmission-daemon &
 redshift -l 46.5:30.7 &
 
-dwm
+ssh-agent dwm
