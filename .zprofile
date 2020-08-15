@@ -11,8 +11,9 @@ export SCREENSHOTDIR=~/pics/screenshots
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="st"
-export BROWSER="brave"
-export BROWSER_PRIVATE="brave --incognito"
+export BROWSER="chromium"
+export BROWSER_NORMAL="chromium--host-resolver-rules --no-proxy-server --new-window"
+export BROWSER_PRIVATE="chromium --incognito"
 export BROWSERCLI="w3m"
 export READER="zathura"
 
