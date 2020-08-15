@@ -97,6 +97,10 @@ fi
 if [ "$(tmux showw -v @netw)" -eq 1 ]; then
     tmux set-option -ga status-right "#[fg=${white},bg=${dark_purple}]#(${current_dir}/network.sh) "
 fi
+# traffic
+if [ "$(tmux showw -v @nettraf)" -eq 1 ]; then
+    tmux set-option -ga status-right "#[fg=${white},bg=${dark_purple}]#(${current_dir}/nettraf.sh) "
+fi
 
  # show time
 tmux set-option -ga status-right "#[fg=${white},bg=${dark_purple}]%R %d/%m/%y"
