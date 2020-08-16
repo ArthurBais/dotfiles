@@ -1,0 +1,10 @@
+#!/bin/sh
+
+xdotool search --class "$BROWSER" windowactivate key "F5" key "F5" key --delay 100 "ctrl+l" key "ctrl+c"
+
+fullurl="$(xclip -o -sel clip)"
+bookmarkname="$(echo "" |  dmenu -p "Name(no special chars):")"
+filtered="$(printf "%s" "${bookmarkname%% *}" | sed 's/[^[:alpha:]]//g')"
+[ "$filtered" = "q" ] || [ -z "$filtered" ]  && exit 1
+keywords="$(echo "" | dmenu -p "Keywords:")"
+printf "%s\t%s\t;; %s\n" "$bookmarkname" "$fullurl" "$keywords" >> ~/.config/surfraw/bookmarks
