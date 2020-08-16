@@ -1,0 +1,36 @@
+#!/bin/sh
+# full backup rsync script with cron notification
+# example command:
+# rsyncfullbackup --exclude-file ~/docs/excl --ssh-key ~/.ssh/id_remote_backup --ip-address 192.168.88.180 --display ":1" --remote-location "$(hostname)"
+# 16/07/20 - Arthur Bais
+
+notify-send -u critical "Cron" "Backing up to remote server..."
+
+while test $# -gt 0
+do
+    case "$1" in
+        "--exclude-file"|"-x") excludefile="$2" ;;
+        "--ip-address"|"-i") 
+            if ping -w 2 -q -c 1 "$2" > /dev/null; then
+                ip="$2"
+            else
+                notify-send -u critical "Cron" "Didn't get any response from IP: $2"
+                exit 1
+            fi
+            ;;
+        "--ssh-key"|"-s") sshkey="$2" ;;
+        "--display"|"-d") export DISPLAY="$2" ;;
+        "--remote-location"|"-l") location="$2" ;;
+    esac
+    shift
+done
+
+/usr/bin/rsync -e "ssh -o 'IdentityAgent=none' -i "$sshkey"" -v --exclude-from="$excludefile" -S --delete \
+    --log-file /var/log/backuplogs/"$(hostname)"."$(date '+%d-%m-%Y')".rsync.log -h \
+    -aAXH / "$ip":"$location"
+
+if [ $? -eq 0 ]; then
+    notify-send -u critical "Cron" "Backup completed successfully."
+else
+    notify-send -u critical "Cron" "Error encountered during backup!"
+fi
