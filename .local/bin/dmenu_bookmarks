@@ -1,0 +1,3 @@
+#!/bin/sh
+link="$(tr '\t' ' '<~/.config/surfraw/bookmarks | dmenu | cut -d' ' -f2)"
+[ "$link" ] && $BROWSER --new-tab "$link"
