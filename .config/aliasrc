@@ -1,5 +1,8 @@
 #!/bin/zsh
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+alias torcurl='curl --proxy socks5://127.0.0.1:9050'
+alias tordl='torsocks -i youtube-dl --add-metadata -f "[height<720]" -o "~/vids/consoom/%(uploader)s/%(title)s.%(upload_date)s.%(ext)s" '
+alias todo='$EDITOR ~/docs/todo'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias urls='$EDITOR ~/.config/newsboat/urls'
 alias ..='cd ..'
@@ -9,6 +12,7 @@ alias offlinewiki-daemon='kiwix-serve --port 49849 --daemon ~/documents/offlinew
 alias offlinewiki-quit='killall kiwix-serve'
 alias yt='youtube-viewer'
 alias doas='doas '
+alias sudo='sudo '
 alias bc='bc -l'
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
@@ -48,6 +52,7 @@ tmuxconf () { $EDITOR ~/.config/tmux/tmux.conf }
 aliasrc () { $EDITOR ~/.config/aliasrc }
 vimrc () { $EDITOR ~/.config/nvim/init.vim }
 zshrc () { $EDITOR ~/.config/zsh/.zshrc }
+sxrc () { $EDITOR ~/.config/sx/sxrc }
 cfg-i3 () { $EDITOR ~/.config/i3/config }
 sxhkdrc () { $EDITOR ~/.config/sxhkd/sxhkdrc }
 rangerrc () { $EDITOR ~/.config/ranger/rc.conf }

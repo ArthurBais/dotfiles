@@ -2,6 +2,9 @@
 # full backup rsync script with cron notification
 # example command:
 # rsyncfullbackup --exclude-file ~/docs/excl --ssh-key ~/.ssh/id_remote_backup --ip-address 192.168.88.180 --display ":1" --remote-location "$(hostname)"
+
+# short version
+# rsyncfullbackup -x ~/docs/excl -s ~/.ssh/id_remote_backup -i 192.168.88.180 -d ":1" -l "$(hostname)"
 # 16/07/20 - Arthur Bais
 
 notify-send -u critical "Cron" "Backing up to remote server..."
